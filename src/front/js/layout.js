@@ -6,7 +6,7 @@ import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 import { Navbar } from "./component/navbar";
 import { Login } from "./pages/login";
-import { Registration } from "./pages/Registration";
+import { Registration } from "./pages/registration";
 import { Home } from "./pages/home";
 
 //create your first component
