@@ -20,9 +20,9 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <Navbar />
         <Routes>
-          <Route element={<Login />} path="/" />
+          <Route element={<Home />} path="/" />
           <Route element={<Registration />} path="registerUser" />
-          <Route element={<Home />} path="taskList" />
+          <Route element={<Login />} path="login" />
           {/* <Route element={<Single />} path="/single/:theid" /> */}
           <Route element={<h1>Not found!</h1>} path="*" />
         </Routes>
