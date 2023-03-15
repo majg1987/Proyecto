@@ -1,0 +1,36 @@
+.container-form {
+    width: 400px;
+    border: none;
+    background: linear-gradient(150deg, #0A97B0, #F54291);
+    background-size: 400% 400%;
+    animation: BgGradient 5s ease infinite;
+}
+
+@keyframes BgGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 50% 100%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.titulo {
+    color: #FAEEE7;
+}
+
+.campo {
+    border: none;
+    width: 350px;
+    padding: 5px;
+    border-radius: .5em;
+}
+
+.campo:focus {
+    outline: none;
+}
