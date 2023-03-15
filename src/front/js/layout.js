@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import injectContext from "./store/appContext";
 
 import { Footer } from "./component/footer";
-import { Navbar } from "./component/navbar";
+import { Navbar } from "./component/nav/Navbar.jsx";
 import { Login } from "./pages/login";
 import { Registration } from "./pages/registration";
 import { Home } from "./pages/home";
