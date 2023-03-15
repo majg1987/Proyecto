@@ -17,7 +17,7 @@ import json, bcrypt
 api = Blueprint('api', __name__)
 
 # Ruta para el registro de un Usuario
-@api.route('/registration', methods=['POST'])
+@api.route('/userRegister', methods=['POST'])
 def registration():
     # Recibimos los datos del Front
     body = json.loads(request.data)
