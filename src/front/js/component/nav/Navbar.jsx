@@ -1,9 +1,8 @@
-import React from "react";
-import "../../../styles/nav.css";
+import { faHouse, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faHouse } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Portada } from "./Portada.jsx";
+import "../../../styles/nav.css";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -26,7 +25,6 @@ export const Navbar = () => {
           />
         </div>
       </nav>
-      <Portada />
     </>
   );
 };

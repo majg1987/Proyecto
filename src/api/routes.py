@@ -22,26 +22,33 @@ def registration():
     # Recibimos los datos del Front
     body = json.loads(request.data)
 
-    # Hash password
-    hashed_password = current_app.bcrypt.generate_password_hash(
-        body["password"]
-    ).decode("utf-8")
+    print(body)
 
-    # Guardar nuevo user con hashed_password
-    body = {
-        x: body[x]
-        for x in [
-            "email",
-            "password",
-        ]
-    }
+    user = User.query.filter_by(email=body["email"]).first()
 
-    body["password"] = hashed_password
+    # if(user.email.length == 0 ):
+    #     return jsonify({"msg": "El email ya esta registrado"}), 401 
 
-    user = User(**body)
+    # # Hash password
+    # hashed_password = current_app.bcrypt.generate_password_hash(
+    #     body["password"]
+    # ).decode("utf-8")
 
-    db.session.add(user)
-    db.session.commit()
+    # # Guardar nuevo user con hashed_password
+    # body = {
+    #     x: body[x]
+    #     for x in [
+    #         "email",
+    #         "password",
+    #     ]
+    # }
+
+    # body["password"] = hashed_password
+
+    # user = User(**body)
+
+    # db.session.add(user)
+    # db.session.commit()
 
     response_body = {
         "message": "Formulario de Registro Usuario Ok"

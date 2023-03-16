@@ -1,3 +1,11 @@
+/* Importo las librerias para crear alert de registro erroneo */
+import {
+    ToastContainer,
+    toast,
+    Zoom
+} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const getState = ({
     getStore,
     getActions,
@@ -7,15 +15,9 @@ const getState = ({
         store: {
             user: {},
             registered: false,
-            errorRegister: false,
+            error: false,
         },
         actions: {
-            // Control de errores
-            errorRegister: () => {
-                setStore({
-                    errorRegister: false
-                })
-            },
 
             // User register
             register: async (user) => {
@@ -35,9 +37,10 @@ const getState = ({
                         options
                     );
                     if (response.status === 200) {
+                        getActions().notifySuccess('Registro realizado correctamente')
                         setStore({
                             registered: true
-                        })
+                        });
                     }
 
                     setStore({
@@ -47,9 +50,43 @@ const getState = ({
                 } catch (error) {
                     console.log(`Error: ${error}`);
                     setStore({
-                        errorRegister: true
+                        error: true
                     })
                 }
+            },
+
+            // Control de errores
+            resetError: () => {
+                setStore({
+                    error: false
+                })
+            },
+
+            // Alerts
+            notifyError: (message) => {
+                toast.error(message, {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            },
+
+            notifySuccess: (message) => {
+                toast.success(`🦄 ${message}`, {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         }
     };

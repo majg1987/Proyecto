@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
+import React from "react";
 import "../../styles/home.css";
+import { Portada } from "../component/Portada.jsx";
 
 export const Home = () => {
-  const { store, actions } = useContext(Context);
-
-  return <div className=""></div>;
+  return (
+    <>
+      <Portada />
+    </>
+  );
 };

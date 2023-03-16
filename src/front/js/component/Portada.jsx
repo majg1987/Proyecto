@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../styles/nav.css";
+import "../../styles/portada.css";
 
 export const Portada = () => {
   return (

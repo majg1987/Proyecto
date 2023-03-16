@@ -1,8 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { User } from "../../../models/User.class";
 import "../../../styles/forms.css";
 import { Navigate } from "react-router-dom";
+import { AlertToastifyComponent } from "./alerts/AlertToastifyComponent.jsx";
 
 export const RegisterForm = () => {
   const { store, actions } = useContext(Context);
@@ -21,9 +22,20 @@ export const RegisterForm = () => {
       const user = new User(email, password);
       actions.register(user);
     } else {
-      console.log("Datos Incorrectos, complete los campos adecuadamente");
+      actions.notifyError(
+        "¡Datos Incorrectos! Complete los campos adecuadamente"
+      );
     }
   };
+
+  useEffect(() => {
+    if (store.error) {
+      actions.notifyError(
+        "Error en la conexión con la base de datos, intentelo más tarde"
+      );
+      actions.resetError();
+    }
+  }, [store.error]);
 
   return (
     <>
@@ -75,6 +87,9 @@ export const RegisterForm = () => {
                 </div>
               </form>
             </div>
+          </div>
+          <div>
+            <AlertToastifyComponent />
           </div>
         </div>
       )}
